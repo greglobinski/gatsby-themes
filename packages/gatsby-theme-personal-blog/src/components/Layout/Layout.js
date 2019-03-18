@@ -10,6 +10,8 @@ import PageContainer from './PageContainer';
 import ActionsBar from '../ActionsBar';
 import Footer from '../shared/Footer';
 import { UIProvider } from '../../context/UIState';
+import { AppProvider } from '../../context/AppState';
+import { ModalProvider } from '../Modal';
 
 import theme from '../../styles/theme';
 
@@ -19,15 +21,19 @@ const Layout = props => {
   return (
     <ThemeProvider theme={theme}>
       <UIProvider location={location}>
-        <GlobalStyles />
-        <GlobalFonts />
-        <PageContainer>
-          <main>{children}</main>
-          <Footer />
-        </PageContainer>
-        <Navigator />
-        <Sidebar />
-        <ActionsBar />
+        <AppProvider>
+          <ModalProvider>
+            <GlobalStyles />
+            <GlobalFonts />
+            <PageContainer>
+              <main>{children}</main>
+              <Footer />
+            </PageContainer>
+            <Navigator />
+            <Sidebar />
+            <ActionsBar />
+          </ModalProvider>
+        </AppProvider>
       </UIProvider>
     </ThemeProvider>
   );

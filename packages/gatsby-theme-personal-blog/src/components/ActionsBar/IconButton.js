@@ -32,12 +32,14 @@ const ActionButton = styled(`button`)`
 
 const ActionLink = ActionButton.withComponent(Link);
 
-export default ({ children, to, onClick }) => {
+export default ({ children, to, onClick, className, btnRef }) => {
   return to ? (
-    <ActionLink to={to} onClick={onClick}>
+    <ActionLink to={to} onClick={onClick} className={className}>
       {children}
     </ActionLink>
   ) : (
-    <ActionButton onClick={onClick}>{children}</ActionButton>
+    <ActionButton onClick={onClick} className={className} ref={btnRef}>
+      {children}
+    </ActionButton>
   );
 };
