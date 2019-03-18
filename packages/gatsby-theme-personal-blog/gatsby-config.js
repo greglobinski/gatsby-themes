@@ -1,4 +1,44 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const query = `{
+
+  allMdx(
+    filter: {
+      fields: {
+        source: {
+          in: ["personal-blog-posts"]
+        }
+        slug: { ne: null }
+      }
+    }
+    limit: 1000
+  ) {
+    edges {
+      node {
+        objectID: id
+        fields {
+          slug
+        }
+        internal {
+          content
+        }
+        frontmatter {
+          title
+          subTitle
+        }
+      }
+    }
+  }
+}`;
+
+const queries = [
+  {
+    query,
+    transformer: ({ data }) => data.allMdx.edges.map(({ node }) => node),
+  },
+];
 
 module.exports = {
   siteMetadata: {
@@ -19,6 +59,20 @@ module.exports = {
     ],
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : '',
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY
+          ? process.env.ALGOLIA_ADMIN_API_KEY
+          : '',
+        indexName: process.env.ALGOLIA_INDEX_NAME
+          ? process.env.ALGOLIA_INDEX_NAME
+          : '',
+        queries,
+        chunkSize: 10000, // default: 1000
+      },
+    },
     {
       resolve: 'gatsby-plugin-page-creator',
       options: {
