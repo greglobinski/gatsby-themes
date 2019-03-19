@@ -14,6 +14,7 @@ const ActionButton = styled(`button`)`
   height: 60px;
   width: 60px;
   margin: ${props => props.theme.spaces[`2xs`]} 0;
+  position: relative;
 
   :hover {
     svg {
@@ -27,6 +28,20 @@ const ActionButton = styled(`button`)`
     color: #999;
     width: 30px;
     height: 30px;
+  }
+
+  &.active {
+    :after {
+      content: '';
+      width: 15px;
+      height: 15px;
+      background: #f39c12;
+      border-radius: 50%;
+      position: absolute;
+      border: 2px solid white;
+      top: 20%;
+      right: 20%;
+    }
   }
 `;
 
