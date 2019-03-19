@@ -42,10 +42,10 @@ export default ({ children, closeModal, sourceRef }) => {
     0% {
       transform:   translate3D(${translateX}, ${translateY}, 0)  scale(${sourceScaleX}, ${sourceScaleY})  perspective(1000px) rotateY(0);
     }
-    29% {
+    30% {
       transform:   translate3D(${translateX}, ${translateY}, 0)  scale(${sourceScaleX}, ${sourceScaleY})  perspective(1000px) rotateY(0);
     }
-    30% {
+    35% {
       transform:   translate3D(${translateX}, ${translateY}, 0)  scale(${sourceScaleX}, ${sourceScaleY})  perspective(1000px) rotateY(15deg);
     }
     100% {
