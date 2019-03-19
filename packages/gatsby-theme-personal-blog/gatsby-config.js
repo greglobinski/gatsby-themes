@@ -96,23 +96,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `personal-blog-demo-fragments`,
-        path: `content/personal-blog/fragments`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `personal-blog-fragments`,
-        path: `${__dirname}/content/fragments/`,
-      },
-    },
-
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `personal-blog-pieces`,
-        path: `${__dirname}/content/pieces/`,
+        path: `content/personal-blog/pieces`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `personal-blog-demo-pieces`,
+        path: `${__dirname}/content/pieces`,
       },
     },
     {
@@ -135,6 +127,9 @@ module.exports = {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
           'personal-blog-pieces': require.resolve(
+            './src/templates/PieceTemplate'
+          ),
+          'personal-blog-demo-pieces': require.resolve(
             './src/templates/PieceTemplate'
           ),
         },

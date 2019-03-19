@@ -19,7 +19,6 @@ export default ({ isOpen, onDismiss, children }) => {
     left: 0;
     min-height: 100vh;
     opacity: 0;
-
     right: 0;
     top: 0;
     z-index: 10000;
