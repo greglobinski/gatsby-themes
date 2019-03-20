@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXProvider } from '@mdx-js/tag';
 
-import SidebarInfo from '../../../content/pieces/SidebarInfo.mdx';
+import sidebarInfo from '../../data/sidebarInfo';
 
-const Info = styled(SidebarInfo)`
+const Info = styled.div`
   font-size: ${props => props.theme.fontSizes.s};
   color: #666;
   line-height: 1.5;
@@ -18,5 +20,15 @@ const Info = styled(SidebarInfo)`
 `;
 
 export default props => {
-  return <Info />;
+  const info = sidebarInfo();
+
+  return (
+    <MDXProvider
+      components={{
+        wrapper: Info,
+      }}
+    >
+      <MDXRenderer>{info}</MDXRenderer>
+    </MDXProvider>
+  );
 };

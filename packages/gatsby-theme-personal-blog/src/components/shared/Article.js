@@ -2,7 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { MDXProvider } from '@mdx-js/tag';
-import AuthorNote from '../../../content/pieces/AuthorNote.mdx';
+
+import authorNote from '../../data/authorNote';
 
 export const ArtTitle = styled.h1`
   color: ${props => props.theme.colors.header};
@@ -90,6 +91,7 @@ const Article = styled.article`
 
 const ArticleComp = ({ children, post = {} }) => {
   const { title, subTitle, body } = post;
+  const author = authorNote();
 
   return (
     <MDXProvider
@@ -103,7 +105,7 @@ const ArticleComp = ({ children, post = {} }) => {
           <ArtTitle>{title}</ArtTitle>
           {subTitle && <ArtSubtitle>{subTitle}</ArtSubtitle>}
           <MDXRenderer>{body}</MDXRenderer>
-          <AuthorNote />
+          <MDXRenderer>{author}</MDXRenderer>
         </Article>
       ) : (
         <Article>{children}</Article>
