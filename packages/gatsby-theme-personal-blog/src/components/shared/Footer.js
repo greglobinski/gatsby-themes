@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXProvider } from '@mdx-js/tag';
 
-import FooterCredits from '../../../content/pieces/FooterCredits.mdx';
+import footerCredits from '../../data/footerCredits';
 
 const Footer = styled.footer`
   padding: ${props => props.theme.spaces.xl};
@@ -23,7 +25,7 @@ const Footer = styled.footer`
   }
 `;
 
-const Credits = styled(FooterCredits)`
+const Credits = styled.div`
   font-size: ${props => props.theme.fontSizes[`xs`]};
 
   ul {
@@ -48,9 +50,17 @@ const Credits = styled(FooterCredits)`
 `;
 
 const FooterComp = ({ inSidebar = false }) => {
+  const credits = footerCredits();
+
   return (
     <Footer className={inSidebar ? `inSidebar` : ``}>
-      <Credits />
+      <MDXProvider
+        components={{
+          wrapper: Credits,
+        }}
+      >
+        <MDXRenderer>{credits}</MDXRenderer>
+      </MDXProvider>
     </Footer>
   );
 };

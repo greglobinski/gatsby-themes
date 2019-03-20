@@ -183,6 +183,12 @@ const GlobalStyles = () => (
       /*
         beginning custom global style
        */
+
+      :root {
+        --reach-menu-button: 1;
+        --reach-dialog: 1;
+      }
+
       body {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
         position: relative;
