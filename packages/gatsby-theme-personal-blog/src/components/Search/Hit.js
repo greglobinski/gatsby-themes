@@ -6,20 +6,13 @@ import { ModalContext } from '../Modal';
 
 const Hit = styled(Link)`
   color: white;
-  margin: ${props => props.theme.spaces.xs} 0;
+  margin: ${props => props.theme.spaces[`2xs`]} 0;
   padding: ${props => props.theme.spaces.xs} 0;
   text-decoration: none;
   display: block;
 
-  strong {
-    font-size: 1.2rem;
-    display: block;
-  }
-
-  span {
-    display: block;
-    margin-top: ${props => props.theme.spaces[`3xs`]};
-  }
+  font-weight: 600;
+  font-size: 1.2rem;
 `;
 
 export default ({ hit }) => {
@@ -31,10 +24,7 @@ export default ({ hit }) => {
 
   return (
     <Hit to={hit.fields.slug} onClick={onClick}>
-      <strong>{hit.frontmatter.title}</strong>
-      <span>
-        {hit.frontmatter.subTitle && <span>{hit.frontmatter.subTitle}</span>}
-      </span>
+      {hit.frontmatter.title}
     </Hit>
   );
 };

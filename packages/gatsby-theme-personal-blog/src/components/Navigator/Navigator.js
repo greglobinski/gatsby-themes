@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { UIContext } from '../../context/UIState';
 import PostList from './PostList';
-import navigatorData from './NavigatorData';
+import postList from '../../data/postList';
 
 const Navigator = styled.nav`
   background: ${props => props.theme.palette.white};
@@ -78,7 +78,7 @@ const Navigator = styled.nav`
 
 export default () => {
   const { navigatorState } = useContext(UIContext);
-  const { posts } = navigatorData();
+  const posts = postList();
 
   return (
     <Navigator className={navigatorState}>
