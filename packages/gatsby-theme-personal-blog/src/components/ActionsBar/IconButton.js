@@ -33,12 +33,12 @@ const ActionButton = styled(`button`)`
   &.active {
     :after {
       content: '';
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
       background: #f39c12;
       border-radius: 50%;
       position: absolute;
-      border: 2px solid white;
+      border: 4px solid white;
       top: 20%;
       right: 20%;
     }

@@ -12,7 +12,7 @@ const Hit = styled(Link)`
   display: block;
 
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `;
 
 export default ({ hit }) => {
