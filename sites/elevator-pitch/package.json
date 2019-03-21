@@ -1,6 +1,6 @@
 {
   "name": "elevator-pitch",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "A site using gatsby-theme-elevator-pitch",
   "main": "gatsby-config.js",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "gatsby": "^2.1.4",
-    "gatsby-theme-elevator-pitch": "^0.0.35",
+    "gatsby-theme-elevator-pitch": "^0.0.36",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
   }
