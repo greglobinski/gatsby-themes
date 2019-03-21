@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-const navigatorData = () => {
+const postList = () => {
   const data = useStaticQuery(graphql`
     query {
       posts: allMdx(
@@ -63,7 +63,7 @@ const navigatorData = () => {
     };
   });
 
-  return { posts };
+  return posts;
 };
 
-export default navigatorData;
+export default postList;

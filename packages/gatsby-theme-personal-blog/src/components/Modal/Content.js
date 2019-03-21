@@ -64,17 +64,30 @@ export default ({ children, closeModal, sourceRef }) => {
 
   const Content = styled(DialogContent)`
     animation: ${outerEntry} 0.75s ease forwards;
-    background: rgba(51, 51, 51, 0.98);
+    background: rgba(51, 51, 51, 0.96);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     outline: none;
-    overflow-y: auto;
+    overflow-y: scroll;
     transform: translate3D(${translateX}, ${translateY}, 0)
       scale(${sourceScaleX}, ${sourceScaleY}) perspective(1000px) rotateY(0);
     transform-origin: top left;
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #333;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #666;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #999;
+    }
 
     & > * {
       animation: ${innerEntry} 1s forwards;
