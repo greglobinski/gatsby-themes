@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-personal-blog",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Gatsby.js theme for personal blog",
   "main": "index.js",
   "license": "MIT",

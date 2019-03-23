@@ -1,6 +1,6 @@
 {
   "name": "personal-blog",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A site using gatsby-theme-personal-blog",
   "main": "gatsby-config.js",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "gatsby": "^2.1.17",
-    "gatsby-theme-personal-blog": "^0.0.3",
+    "gatsby-theme-personal-blog": "^0.0.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
   }
