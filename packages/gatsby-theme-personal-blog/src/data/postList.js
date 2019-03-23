@@ -22,6 +22,7 @@ const postList = () => {
               title
               subTitle
               category
+              tags
               cover {
                 childImageSharp {
                   fluid(maxWidth: 90) {
@@ -46,6 +47,7 @@ const postList = () => {
         title,
         subTitle,
         category,
+        tags,
         cover: {
           childImageSharp: { fluid: imgData },
         },
@@ -58,6 +60,7 @@ const postList = () => {
       subTitle,
       imgData,
       category,
+      tags,
       slug,
       date,
     };
