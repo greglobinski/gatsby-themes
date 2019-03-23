@@ -25,13 +25,14 @@ const Layout = props => {
           <ModalProvider>
             <GlobalStyles />
             <GlobalFonts />
+
+            <Sidebar />
+            <ActionsBar />
+            <Navigator />
             <PageContainer>
               <main>{children}</main>
               <Footer />
             </PageContainer>
-            <Navigator />
-            <Sidebar />
-            <ActionsBar />
           </ModalProvider>
         </AppProvider>
       </UIProvider>

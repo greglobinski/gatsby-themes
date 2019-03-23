@@ -7,6 +7,7 @@ import CategoryBtn from './CategoryBtn';
 import TagBtn from './TagBtn';
 import ScrollBtn from './ScrollBtn';
 import HomeBtn from './HomeBtn';
+import SettingsBtn from './SettingsBtn';
 import { UIContext } from '../../context/UIState';
 
 const ActionsBar = styled(`aside`)`
@@ -47,6 +48,7 @@ export default () => {
         <TagBtn />
       </Group>
       <Group>
+        <SettingsBtn />
         <ScrollBtn />
         <FullScreenBtn />
       </Group>
