@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 import { BaseTitle } from '../shared/Typography';
+import authorAvatar from '../../data/authorAvatar';
 
 const Header = styled.header`
   width: 100%;
@@ -11,12 +13,13 @@ const Header = styled.header`
 const Avatar = styled.div`
   width: ${props => props.theme.dimensions.avatar.owner.width};
   height: ${props => props.theme.dimensions.avatar.owner.width};
-  border: 1px solid black;
+  border: 1px solid #999;
   border-radius: 65% 75%;
   position: relative;
   margin-bottom: ${props => props.theme.spaces.m};
   top: 0;
   left: 0;
+  overflow: hidden;
   will-change: transform;
   transition: 0.5s ease;
   transform: translate(
@@ -27,6 +30,11 @@ const Avatar = styled.div`
     ),
     0
   );
+
+  .gatsby-image-wrapper {
+    max-width: 100%;
+    max-height: 100%;
+  }
 
   .navigatorSlidingUp &,
   .navigatorAside & {
@@ -120,11 +128,14 @@ const Hgroup = styled.hgroup`
 
 export default props => {
   const { slideInNavigator } = props;
+  const avatar = authorAvatar();
 
   return (
     <Header>
       <Link to="/" onClick={slideInNavigator}>
-        <Avatar />
+        <Avatar>
+          <Img fixed={avatar} />
+        </Avatar>
         <Hgroup>
           <Title>greg lobinski</Title>
           <Subtitle>personal blog</Subtitle>
