@@ -12,6 +12,7 @@ exports.onPreBootstrap = ({ reporter }) => {
     'content/personal-blog',
     'content/personal-blog/posts',
     'content/personal-blog/pieces',
+    'content/personal-blog/images',
   ];
 
   dirs.forEach(dir => {
