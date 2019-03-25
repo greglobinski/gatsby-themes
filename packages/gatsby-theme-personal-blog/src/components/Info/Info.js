@@ -6,9 +6,9 @@ import Header from './Header';
 import SocialLinks from './SocialLinks';
 import PageLinks from './PageLinks';
 import Footer from '../shared/Footer';
-import Info from './Info';
+import Note from './Note';
 
-const Sidebar = styled.aside`
+const Info = styled.aside`
   background: ${props => props.theme.palette.white};
 
   height: 100vh;
@@ -20,8 +20,13 @@ const Sidebar = styled.aside`
   left: 0;
   top: 0;
   padding: ${props => props.theme.dimensions.sidebar.padding};
-  transform: translateX(-100%);
+  transform: translateX(100%);
+  transition: 1s ease-in-out;
   z-index: 5;
+
+  &.featured {
+    transform: translateX(0);
+  }
 
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     width: ${props => props.theme.dimensions.sidebar.width};
@@ -50,15 +55,21 @@ const addPrefix = (prefix, str) =>
   prefix + str.charAt(0).toUpperCase() + str.slice(1);
 
 export default props => {
-  const { navigatorState, slideInNavigator } = useContext(UIContext);
+  const { navigatorState, slideInNavigator, infoFeatured } = useContext(
+    UIContext
+  );
 
   return (
-    <Sidebar className={addPrefix('navigator', navigatorState)}>
+    <Info
+      className={`${addPrefix('navigator', navigatorState)} ${
+        infoFeatured ? 'featured' : ''
+      }`}
+    >
       <Header slideInNavigator={slideInNavigator} />
-      <Info />
+      <Note />
       <PageLinks />
       <SocialLinks />
       <Footer inSidebar />
-    </Sidebar>
+    </Info>
   );
 };

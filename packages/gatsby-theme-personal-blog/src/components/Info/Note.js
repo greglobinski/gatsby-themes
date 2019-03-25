@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import { MDXProvider } from '@mdx-js/tag';
 
-import sidebarInfo from '../../data/sidebarInfo';
+import infoNote from '../../data/infoNote';
 
-const Info = styled.div`
+const Note = styled.div`
   font-size: ${props => props.theme.fontSizes.s};
   color: #666;
   line-height: 1.5;
@@ -20,15 +20,15 @@ const Info = styled.div`
 `;
 
 export default props => {
-  const info = sidebarInfo();
+  const note = infoNote();
 
   return (
     <MDXProvider
       components={{
-        wrapper: Info,
+        wrapper: Note,
       }}
     >
-      <MDXRenderer>{info}</MDXRenderer>
+      <MDXRenderer>{note}</MDXRenderer>
     </MDXProvider>
   );
 };

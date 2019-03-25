@@ -5,7 +5,7 @@ import { ThemeProvider } from 'emotion-theming';
 import GlobalStyles from '../../styles/GlobalStyles';
 import GlobalFonts from '../../styles/GlobalFonts';
 import Navigator from '../Navigator';
-import Sidebar from '../Sidebar';
+import Info from '../Info';
 import PageContainer from './PageContainer';
 import ActionsBar from '../ActionsBar';
 import Footer from '../shared/Footer';
@@ -26,7 +26,7 @@ const Layout = props => {
             <GlobalStyles />
             <GlobalFonts />
 
-            <Sidebar />
+            <Info />
             <ActionsBar />
             <Navigator />
             <PageContainer>
