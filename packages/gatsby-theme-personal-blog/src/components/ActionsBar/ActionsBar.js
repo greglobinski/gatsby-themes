@@ -33,7 +33,7 @@ const ActionsBar = styled(`aside`)`
     background: rgba(255, 255, 255, 0.5);
     bottom: 30px;
     z-index: 4;
-    transition: 3s ease;
+    transition: 0.5s ease;
   }
 `;
 
