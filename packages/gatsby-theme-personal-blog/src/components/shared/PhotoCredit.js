@@ -8,9 +8,8 @@ const PhotoCredit = styled.figure`
   figcaption {
     position: absolute;
     bottom: 0;
-    font-size: 0.9rem;
-    max-width: 80%;
-    margin-left: -${props => props.theme.spaces[`4xl`]};
+    font-size: 0.8rem;
+    margin-left: -${props => props.theme.spaces.m};
 
     a {
       align-items: center;
@@ -19,7 +18,8 @@ const PhotoCredit = styled.figure`
       display: flex;
       text-decoration: none;
       border-radius: 4px 4px 0 6px;
-      padding: ${props => props.theme.spaces.s} ${props => props.theme.spaces.m};
+      padding: ${props => props.theme.spaces.xs}
+        ${props => props.theme.spaces.s};
       transition: 0.5s ease;
 
       :hover {
@@ -49,6 +49,16 @@ const PhotoCredit = styled.figure`
       i {
         font-style: normal;
         margin-right: ${props => props.theme.spaces[`2xs`]};
+      }
+    }
+
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+      font-size: 0.9rem;
+      margin-left: -${props => props.theme.spaces[`4xl`]};
+
+      a {
+        padding: ${props => props.theme.spaces.s}
+          ${props => props.theme.spaces.m};
       }
     }
   }

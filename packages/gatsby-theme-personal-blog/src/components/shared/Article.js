@@ -7,21 +7,32 @@ import authorNote from '../../data/authorNote';
 
 export const ArtTitle = styled.h1`
   color: ${props => props.theme.colors.header};
-  font-size: ${props => props.theme.fontSizes[`5xl`]};
+  font-size: ${props => props.theme.fontSizes[`3xl`]};
   line-height: 1.1;
   letter-spacing: -0.03em;
   font-weight: 600;
-  margin: 0 ${props => props.theme.spaces[`4xl`]};
+  margin: 0;
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    font-size: ${props => props.theme.fontSizes[`5xl`]};
+    margin: ${props => props.theme.spaces.xl}
+      ${props => props.theme.spaces[`4xl`]} 0;
+  }
 `;
 
 export const ArtSubtitle = styled.h2`
   color: ${props => props.theme.colors.header};
-  font-size: ${props => props.theme.fontSizes[`3xl`]};
+  font-size: ${props => props.theme.fontSizes[`xl`]};
   line-height: 1.2;
   letter-spacing: -0.02em;
   font-weight: 300;
-  margin: ${props => props.theme.spaces.xl}
-    ${props => props.theme.spaces[`4xl`]} 0;
+  margin: ${props => props.theme.spaces.l} 0 0;
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    font-size: ${props => props.theme.fontSizes[`3xl`]};
+    margin: ${props => props.theme.spaces.xl}
+      ${props => props.theme.spaces[`4xl`]} 0;
+  }
 `;
 
 export const Content = styled.div`
@@ -56,12 +67,11 @@ const Article = styled.article`
   margin: 0 auto;
   color: ${props => props.theme.colors.text};
   font-size: ${props => props.theme.fontSizes.m};
-  padding: ${props => props.theme.spaces[`3xl`]}
-    ${props => props.theme.spaces[`2xl`]};
+  padding: ${props => props.theme.spaces[`l`]}
+    ${props => props.theme.spaces[`m`]};
 
   > * {
-    margin: ${props => props.theme.spaces.xl}
-      ${props => props.theme.spaces[`4xl`]};
+    margin: ${props => props.theme.spaces.l} 0;
   }
 
   p {
@@ -83,9 +93,24 @@ const Article = styled.article`
   }
 
   .gatsby-resp-image-link {
-    border-radius: 6px;
     overflow: hidden;
-    margin: ${props => props.theme.spaces[`2xl`]} -${props => props.theme.spaces[`4xl`]};
+    margin: ${props => props.theme.spaces[`2xl`]} -${props => props.theme.spaces[`m`]};
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    padding: ${props => props.theme.spaces[`3xl`]}
+      ${props => props.theme.spaces[`2xl`]};
+
+    > * {
+      margin: ${props => props.theme.spaces.xl}
+        ${props => props.theme.spaces[`4xl`]};
+    }
+
+    .gatsby-resp-image-link {
+      border-radius: 6px;
+      overflow: hidden;
+      margin: ${props => props.theme.spaces[`2xl`]} -${props => props.theme.spaces[`4xl`]};
+    }
   }
 `;
 
