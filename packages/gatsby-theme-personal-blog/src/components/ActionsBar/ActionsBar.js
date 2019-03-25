@@ -11,26 +11,38 @@ import SettingsBtn from './SettingsBtn';
 import { UIContext } from '../../context/UIState';
 
 const ActionsBar = styled(`aside`)`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   position: fixed;
-  top: 30px;
-  right: 36px;
-  width: 80px;
-  padding: ${props => props.theme.spaces.s} 0;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.5);
-  bottom: 30px;
-  z-index: 4;
-  transition: 3s ease;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.95);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 6;
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 30px;
+    right: 36px;
+    width: 80px;
+    padding: ${props => props.theme.spaces.s} 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    bottom: 30px;
+    z-index: 4;
+    transition: 3s ease;
+  }
 `;
 
 const Group = styled(`div`)`
   display: flex;
   align-items: center;
-  flex-direction: column;
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    flex-direction: column;
+  }
 `;
 
 export default () => {

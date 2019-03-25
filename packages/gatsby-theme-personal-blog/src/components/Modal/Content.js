@@ -4,23 +4,7 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
 
 import { FiX } from 'react-icons/fi';
-
-const CloseButton = styled.button`
-  position: absolute;
-  border: 0;
-  top: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: none;
-  cursor: pointer;
-
-  svg {
-    stroke: white;
-    width: 60%;
-    height: 60%;
-  }
-`;
+import { CloseButton } from './Elements';
 
 export default ({ children, closeModal, sourceRef }) => {
   const windowWidth = window.innerWidth;
@@ -64,14 +48,18 @@ export default ({ children, closeModal, sourceRef }) => {
 
   const Content = styled(DialogContent)`
     animation: ${outerEntry} 0.75s ease forwards;
-    background: rgba(51, 51, 51, 0.96);
+    background-image: linear-gradient(
+      315deg,
+      rgba(51, 51, 51, 0.96),
+      rgba(17, 17, 17, 0.98)
+    );
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     outline: none;
-    overflow-y: scroll;
+    overflow-y: auto;
     transform: translate3D(${translateX}, ${translateY}, 0)
       scale(${sourceScaleX}, ${sourceScaleY}) perspective(1000px) rotateY(0);
     transform-origin: top left;

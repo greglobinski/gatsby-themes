@@ -18,6 +18,16 @@ const Navigator = styled.nav`
   width: 100%;
   z-index: 1;
 
+  &.aside {
+    transform: translateX(-100%);
+    transition: 0.5s ease-in-out;
+  }
+
+  &.featured {
+    transform: translateX(0);
+    transition: 0.5s ease-in-out;
+  }
+
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     padding: ${props => props.theme.spaces.m};
 
@@ -77,11 +87,11 @@ const Navigator = styled.nav`
 `;
 
 export default () => {
-  const { navigatorState } = useContext(UIContext);
+  const { navigator, navigatorState } = useContext(UIContext);
   const posts = postList();
 
   return (
-    <Navigator className={navigatorState}>
+    <Navigator className={navigatorState} ref={navigator}>
       <PostList posts={posts} />
     </Navigator>
   );

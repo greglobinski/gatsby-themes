@@ -1,24 +1,23 @@
 import React, { useContext } from 'react';
-import styled from '@emotion/styled';
 
 import { FiTag } from 'react-icons/fi';
 
-import { AppContext } from '../../context/AppState';
-import { ModalContainer, ModalHeading, ModalSubheading } from '../Modal';
+import { AppContext } from '../context/AppState';
+import { ModalContainer, ModalHeading } from './Modal';
 import {
   PostList,
   PostItem,
   PostLink,
   PostListHeading,
-} from '../shared/PostList';
+} from './shared/PostList';
 import {
   AttributeList,
   AttributeItem,
   AttributeButton,
   Instruction,
-} from '../shared/Attribute';
-import postList from '../../data/postList';
-import { attributesToOrderedArray } from '../../utils/helpers/attributes';
+} from './shared/Attribute';
+import postList from '../data/postList';
+import { attributesToOrderedArray } from '../utils/helpers/attributes';
 
 const Tags = ({ closeModal }) => {
   const { selectedTag, setSelectedTag } = useContext(AppContext);

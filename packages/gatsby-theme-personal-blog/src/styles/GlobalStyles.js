@@ -1,5 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
+import breakpoints from './theme/breakpoints';
 
 const GlobalStyles = () => (
   <Global
@@ -200,17 +201,19 @@ const GlobalStyles = () => (
         padding: 0;
       }
 
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #fff;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #ddd;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #999;
+      @media (min-width: ${breakpoints.desktop}) {
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #fff;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #ddd;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #999;
+        }
       }
     `}
   />

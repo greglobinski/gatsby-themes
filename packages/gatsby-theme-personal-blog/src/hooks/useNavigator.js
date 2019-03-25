@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { navigate } from 'gatsby';
+
+import breakpoints from '../styles/theme/breakpoints';
 
 let timeouts = [];
 
@@ -12,6 +14,7 @@ function setInitialState(location) {
 }
 
 const useNavigator = ({ location }) => {
+  const navigator = useRef(null);
   const [navigatorState, setNavigatorState] = useState(
     setInitialState(location)
   );
@@ -26,11 +29,14 @@ const useNavigator = ({ location }) => {
     }
   }, [location]);
 
+  const desktopViewport = () =>
+    window.matchMedia(`(min-width: ${breakpoints.desktop})`).matches;
+
   const slideOutNavigator = event => {
     timeouts.forEach(timeout => clearTimeout(timeout));
     timeouts = [];
 
-    if (navigatorState === `featured`) {
+    if (navigatorState === `featured` && desktopViewport()) {
       setNavigatorState(`slidingOut`);
 
       timeouts[0] = setTimeout(() => {
@@ -52,6 +58,11 @@ const useNavigator = ({ location }) => {
     }
   };
 
+  const navigateToHomePage = () => {
+    navigate('/');
+    navigator.current.removeEventListener('transitionend', navigateToHomePage);
+  };
+
   const slideInNavigator = event => {
     if (event) {
       event.preventDefault();
@@ -60,7 +71,7 @@ const useNavigator = ({ location }) => {
     timeouts.forEach(timeout => clearTimeout(timeout));
     timeouts = [];
 
-    if (navigatorState === `aside`) {
+    if (navigatorState === `aside` && desktopViewport()) {
       setNavigatorState(`slidingDown`);
 
       timeouts[0] = setTimeout(() => {
@@ -80,10 +91,12 @@ const useNavigator = ({ location }) => {
       }, 500);
     } else {
       setNavigatorState(`featured`);
+      navigator.current.addEventListener('transitionend', navigateToHomePage);
     }
   };
 
   return {
+    navigator,
     navigatorState,
     slideOutNavigator,
     slideInNavigator,

@@ -7,7 +7,11 @@ const PageContainer = styled.div`
   right: 0;
   overflow-y: auto;
   top: 0;
-  width: calc(100% - ${props => props.theme.dimensions.sidebar.width});
+  width: 100%;
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    width: calc(100% - ${props => props.theme.dimensions.sidebar.width});
+  }
 `;
 
 export default PageContainer;
