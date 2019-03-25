@@ -8,6 +8,7 @@ import TagBtn from './TagBtn';
 import ScrollBtn from './ScrollBtn';
 import HomeBtn from './HomeBtn';
 import SettingsBtn from './SettingsBtn';
+import InfoBtn from './InfoBtn';
 import { UIContext } from '../../context/UIState';
 
 const ActionsBar = styled(`aside`)`
@@ -46,7 +47,12 @@ const Group = styled(`div`)`
 `;
 
 export default () => {
-  const { navigatorState, slideInNavigator } = useContext(UIContext);
+  const {
+    navigatorState,
+    slideInNavigator,
+    infoFeatured,
+    setInfoFeatured,
+  } = useContext(UIContext);
 
   return (
     <ActionsBar>
@@ -54,6 +60,10 @@ export default () => {
         <HomeBtn
           navigatorState={navigatorState}
           slideInNavigator={slideInNavigator}
+        />
+        <InfoBtn
+          infoFeatured={infoFeatured}
+          setInfoFeatured={setInfoFeatured}
         />
         <SearchBtn />
         <CategoryBtn />

@@ -1,9 +1,9 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-const sidebarInfo = () => {
+const infoNote = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMdx(filter: { fileAbsolutePath: { regex: "/pieces/sidebar-info/" } }) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/pieces/info-note/" } }) {
         edges {
           node {
             code {
@@ -33,4 +33,4 @@ const sidebarInfo = () => {
   }
 };
 
-export default sidebarInfo;
+export default infoNote;

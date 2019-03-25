@@ -1,5 +1,6 @@
 import React, { createContext } from 'react';
 import useNavigator from '../hooks/useNavigator';
+import useInfo from '../hooks/useInfo';
 
 export const UIContext = createContext();
 
@@ -13,6 +14,8 @@ export const UIProvider = ({ children, location }) => {
     location,
   });
 
+  const { infoFeatured, setInfoFeatured } = useInfo();
+
   return (
     <UIContext.Provider
       value={{
@@ -20,6 +23,8 @@ export const UIProvider = ({ children, location }) => {
         navigatorState,
         slideOutNavigator,
         slideInNavigator,
+        infoFeatured,
+        setInfoFeatured,
       }}
     >
       {children}
