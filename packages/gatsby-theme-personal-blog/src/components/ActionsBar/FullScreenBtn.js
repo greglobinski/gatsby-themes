@@ -8,8 +8,13 @@ import IconButton from './IconButton';
 
 const FullScreen = styled(IconButton)`
   svg {
-    width: 34px;
-    height: 34px;
+    width: 22px;
+    height: 22px;
+
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+      width: 34px;
+      height: 34px;
+    }
   }
 `;
 

@@ -23,3 +23,21 @@ export const ModalHeading = styled.h1`
     color: #999;
   }
 `;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  border: 0;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: none;
+  cursor: pointer;
+  z-index: 1;
+
+  svg {
+    stroke: white;
+    width: 60%;
+    height: 60%;
+  }
+`;

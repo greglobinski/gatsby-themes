@@ -10,56 +10,73 @@ import { UIContext } from '../../context/UIState';
 
 const PostListItemRoot = styled.li`
   a {
-    align-items: center;
     display: flex;
-    padding: ${props => props.theme.spaces.l};
+    align-items: center;
+    padding: ${props => props.theme.spaces.m};
 
-    .slidingDown &,
-    .slidedDown &,
-    .slidingUp &,
-    .aside & {
-      padding: ${props => props.theme.spaces.s} ${props => props.theme.spaces.l};
+    @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+      padding: ${props => props.theme.spaces.l};
+
+      .slidingDown &,
+      .slidedDown &,
+      .slidingUp &,
+      .aside & {
+        padding: ${props => props.theme.spaces.s}
+          ${props => props.theme.spaces.l};
+      }
     }
   }
 `;
 
 const TextContainer = styled.div`
-  margin-left: ${props => props.theme.spaces.xl};
+  margin-left: ${props => props.theme.spaces.l};
+  display: flex;
+  flex-direction: column;
 
-  .slidingDown &,
-  .slidedDown &,
-  .slidingUp &,
-  .aside & {
-    margin-left: ${props => props.theme.spaces.m};
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    margin-left: ${props => props.theme.spaces.xl};
+
+    .slidingDown &,
+    .slidedDown &,
+    .slidingUp &,
+    .aside & {
+      margin-left: ${props => props.theme.spaces.m};
+    }
   }
 `;
 
 const PostTitle = styled.h2`
-  font-size: ${props => props.theme.fontSizes[`2xl`]};
+  font-size: ${props => props.theme.fontSizes[`l`]};
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.1;
 
-  .slidingDown &,
-  .slidedDown &,
-  .slidingUp &,
-  .aside & {
-    font-size: ${props => props.theme.fontSizes.s};
-    font-weight: 400;
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    font-size: ${props => props.theme.fontSizes[`2xl`]};
+    .slidingDown &,
+    .slidedDown &,
+    .slidingUp &,
+    .aside & {
+      font-size: ${props => props.theme.fontSizes.s};
+      font-weight: 400;
+    }
   }
 `;
 
 const PostSubtitle = styled.h3`
-  font-size: ${props => props.theme.fontSizes.l};
+  font-size: ${props => props.theme.fontSizes.m};
   font-weight: 300;
   line-height: 1.2;
   margin-top: ${props => props.theme.spaces.s};
 
-  .slidingDown &,
-  .slidedDown &,
-  .slidingUp &,
-  .aside & {
-    display: none;
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    font-size: ${props => props.theme.fontSizes.l};
+    .slidingDown &,
+    .slidedDown &,
+    .slidingUp &,
+    .aside & {
+      display: none;
+    }
   }
 `;
 
@@ -75,19 +92,21 @@ const PostDate = styled.span`
     margin-right: ${props => props.theme.spaces.xs};
   }
 
-  .slidingDown &,
-  .slidedDown &,
-  .slidingUp &,
-  .aside & {
-    display: none;
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    .slidingDown &,
+    .slidedDown &,
+    .slidingUp &,
+    .aside & {
+      display: none;
+    }
   }
 `;
 
 const PostCoverImage = styled.div`
   border-radius: 75% 65%;
-  height: 90px;
+  height: 60px;
   overflow: hidden;
-  width: 90px;
+  width: 60px;
   flex-shrink: 0;
 
   .gatsby-image-wrapper {
@@ -95,12 +114,17 @@ const PostCoverImage = styled.div`
     width: 100%;
   }
 
-  .slidingDown &,
-  .slidedDown &,
-  .slidingUp &,
-  .aside & {
-    height: 30px;
-    width: 30px;
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    width: 90px;
+    height: 90px;
+
+    .slidingDown &,
+    .slidedDown &,
+    .slidingUp &,
+    .aside & {
+      height: 30px;
+      width: 30px;
+    }
   }
 `;
 

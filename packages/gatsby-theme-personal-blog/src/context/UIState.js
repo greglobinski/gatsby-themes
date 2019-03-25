@@ -4,13 +4,19 @@ import useNavigator from '../hooks/useNavigator';
 export const UIContext = createContext();
 
 export const UIProvider = ({ children, location }) => {
-  const { navigatorState, slideOutNavigator, slideInNavigator } = useNavigator({
+  const {
+    navigator,
+    navigatorState,
+    slideOutNavigator,
+    slideInNavigator,
+  } = useNavigator({
     location,
   });
 
   return (
     <UIContext.Provider
       value={{
+        navigator,
         navigatorState,
         slideOutNavigator,
         slideInNavigator,

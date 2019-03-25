@@ -11,10 +11,10 @@ const ActionButton = styled(`button`)`
   border-radius: 4px;
   cursor: pointer;
   transition: 0.5s ease;
-  height: 60px;
-  width: 60px;
-  margin: ${props => props.theme.spaces[`2xs`]} 0;
+
   position: relative;
+  height: 44px;
+  width: 44px;
 
   :hover {
     svg {
@@ -26,8 +26,8 @@ const ActionButton = styled(`button`)`
   svg {
     transition: inherit;
     color: #999;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
 
   &.active {
@@ -41,6 +41,17 @@ const ActionButton = styled(`button`)`
       border: 4px solid white;
       top: 20%;
       right: 20%;
+    }
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    height: 60px;
+    width: 60px;
+    margin: ${props => props.theme.spaces[`2xs`]} 0;
+
+    svg {
+      width: 30px;
+      height: 30px;
     }
   }
 `;

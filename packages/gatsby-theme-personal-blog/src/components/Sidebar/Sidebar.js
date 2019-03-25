@@ -10,31 +10,39 @@ import Info from './Info';
 
 const Sidebar = styled.aside`
   background: ${props => props.theme.palette.white};
+
   height: 100vh;
-  left: 0;
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${props => props.theme.dimensions.sidebar.padding};
+  width: 100%;
+  left: 0;
   top: 0;
-  width: ${props => props.theme.dimensions.sidebar.width};
-  z-index: 2;
+  padding: ${props => props.theme.dimensions.sidebar.padding};
+  transform: translateX(-100%);
+  z-index: 5;
 
-  a {
-    text-decoration: none;
-  }
+  @media (min-width: ${props => props.theme.breakpoints.desktop}) {
+    width: ${props => props.theme.dimensions.sidebar.width};
+    z-index: 2;
+    transform: translateX(0);
 
-  :after {
-    content: '';
-    position: absolute;
-    right: -1px;
-    display: flex;
-    flex-direction: column;
-    top: ${props => props.theme.spaces.xl};
-    bottom: ${props => props.theme.spaces.xl};
-    width: 1px;
-    border-right: 1px solid ${props => props.theme.colors.line};
+    a {
+      text-decoration: none;
+    }
+
+    :after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      display: flex;
+      flex-direction: column;
+      top: ${props => props.theme.spaces.xl};
+      bottom: ${props => props.theme.spaces.xl};
+      width: 1px;
+      border-right: 1px solid ${props => props.theme.colors.line};
+    }
   }
 `;
 
